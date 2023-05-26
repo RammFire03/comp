@@ -1,0 +1,129 @@
+Ќайденые порты:
+135/TCP, 135/UPD Microsoft UPD RPC
+445/TCP, 445/UPD Microsoft UPD RPC
+7680/TCP,7680/UPD Microsoft Delivery Optimization
+
+
+сокеты в состо€нии Established:
+
+TCP    127.0.0.1:65412        127.0.0.1:49689        ESTABLISHED     800
+ [chrome.exe]
+
+TCP    192.168.0.9:49648      64.233.161.139:443     ESTABLISHED     4496
+ [browser.exe]
+
+TCP    192.168.0.9:65179      91.105.192.100:80      ESTABLISHED     8376
+ [Telegram.exe]
+
+TCP    192.168.0.9:50450      40.99.157.50:443       ESTABLISHED     12188
+ [SearchApp.exe]
+
+сокеты в состо€нии Listenig:
+TCP    0.0.0.0:135       0.0.0.0:0     LISTENING     708                                                                                                                        RpcSs                                                                                                                                                                                          [svchost.exe] - главный процесс дл€ служб, загружаемых из динамических библиотек.
+
+TCP    127.0.0.1:49767    0.0.0.0:0     LISTENING   10992
+ [NVIDIA Web Helper.exe]
+
+ TCP    0.0.0.0:38000     0.0.0.0:0     LISTENING   16396
+ [PacketTracer.exe]
+
+ TCP    0.0.0.0:45769     0.0.0.0:0     LISTENING   9168
+ [DiscSoftBusServiceLite.exe]
+
+TCP    0.0.0.0:49668      0.0.0.0:0     LISTENING   3464
+ [spoolsv.exe]
+
+ од:
+PS C:\Users\Lucky> netstat -aon 
+PS C:\Users\Lucky> netstat -aon|more
+PS C:\Users\Lucky> type C:\Windows\System32\drivers\etc\services|findstr 135  
+PS C:\Windows\system32> tasklist|.\findstr.exe 4284 
+PS C:\Users\Lucky> netstat -abon 
+
+ од эхо сервер:
+ѕросмотр сокетов
+student@Ubuntu-MySQL-VirtualBox:~$ netstat -tl
+јктивные соединени€ с интернетом (only servers)
+Proto Recv-Q Send-Q Local Address Foreign Address State      
+tcp        0      0 *:echo                  *:*                     LISTEN     
+tcp        0      0 localhost:mysql         *:*                     LISTEN     
+tcp        0      0 Ubuntu-MySQL-Vir:domain *:*                     LISTEN     
+tcp        0      0 *:ssh                   *:*                     LISTEN     
+tcp        0      0 localhost:ipp           *:*                     LISTEN     
+tcp6       0      0 [::]:ssh                [::]:*                  LISTEN     
+tcp6       0      0 ip6-localhost:ipp       [::]:*                  LISTEN     
+student@Ubuntu-MySQL-VirtualBox:~$ netstat -ntl
+јктивные соединени€ с интернетом (only servers)
+Proto Recv-Q Send-Q Local Address Foreign Address State      
+tcp        0      0 0.0.0.0:7               0.0.0.0:*               LISTEN     
+tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN     
+tcp        0      0 127.0.1.1:53            0.0.0.0:*               LISTEN     
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN     
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN     
+tcp6       0      0 :::22                   :::*                    LISTEN     
+tcp6       0      0 ::1:631                 :::*                    LISTEN     
+student@Ubuntu-MySQL-VirtualBox:~$ netstat -ntl|grep :7
+tcp        0      0 0.0.0.0:7               0.0.0.0:*               LISTEN     
+student@Ubuntu-MySQL-VirtualBox:~$ netstat -nta|grep :7
+tcp        0      0 0.0.0.0:7               0.0.0.0:*               LISTEN     
+student@Ubuntu-MySQL-VirtualBox:~$ netstat -nta|grep :7
+tcp        0      0 0.0.0.0:7               0.0.0.0:*               LISTEN     
+tcp        0      0 10.0.2.15:40761         10.0.2.15:7             ESTABLISHED
+tcp        0      0 10.0.2.15:7             10.0.2.15:40761         ESTABLISHED
+student@Ubuntu-MySQL-VirtualBox:~$ netstat -ntl|grep :7
+tcp        0      0 0.0.0.0:7               0.0.0.0:*               LISTEN  
+
+
+—ервер:
+student@Ubuntu-MySQL-VirtualBox:~$ sudo gcc echo7.c -o echo7
+[sudo] пароль дл€ student: 
+echo7.c: In function СmainТ:
+echo7.c:45:61: warning: passing argument 3 of СacceptТ from incompatible pointer type [-Wincompatible-pointer-types]
+         sock = accept(listener, (struct sockaddr *)&client, &size);
+                                                             ^
+In file included from /usr/include/netinet/in.h:23:0,
+                 from /usr/include/arpa/inet.h:22,
+                 from echo7.c:1:
+/usr/include/x86_64-linux-gnu/sys/socket.h:243:12: note: expected Сsocklen_t * restrict {aka unsigned int * restrict}Т but argument is of type Сsize_t * {aka long unsigned int *}Т
+ extern int accept (int __fd, __SOCKADDR_ARG __addr,
+            ^
+student@Ubuntu-MySQL-VirtualBox:~$ ./echo7
+bind: Permission denied
+student@Ubuntu-MySQL-VirtualBox:~$ sudo ./echo7
+The server is up and running.
+
+Awaiting bytes from a client...
+Received: 6 bytes	From: 10.0.2.15:40761	Message:
+test
+Sending the message back to 10.0.2.15:40761...
+
+Awaiting bytes from a client...
+Received: 7 bytes	From: 10.0.2.15:40761	Message:
+hello
+Sending the message back to 10.0.2.15:40761...
+
+Awaiting bytes from a client...
+Received: 6 bytes	From: 10.0.2.15:40761	Message:
+quit
+Sending the message back to 10.0.2.15:40761...
+
+Awaiting bytes from a client...
+Received: 3 bytes	From: 10.0.2.15:40761	Message:
+
+Sending the message back to 10.0.2.15:40761...
+
+Awaiting bytes from a client...
+Received: 7 bytes	From: 10.0.2.15:40761	Message:
+quit
+Sending the message back to 10.0.2.15:40761...
+
+Awaiting bytes from a client...
+10.0.2.15:40761 disconnected.
+
+Awaiting bytes from a client...
+
+PuTTY:
+test
+hello
+quit
+quit

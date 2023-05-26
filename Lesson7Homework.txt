@@ -1,0 +1,27 @@
+1a)
+Network:   192.168.1.0/25  Broadcast: 192.168.0.127
+Network:   192.168.1.128/25   Broadcast: 192.168.0.255
+1á)
+Network:   192.168.1.0/26   Broadcast: 192.168.0.63
+Network:   192.168.1.64/26   Broadcast: 192.168.0.127
+Network:   192.168.1.128/26   Broadcast: 192.168.0.191
+Network:   192.168.1.192/26   Broadcast: 192.168.0.255
+1â)
+Network:   192.168.1.0/27   Broadcast: 192.168.1.31
+Network:   192.168.1.32/27   Broadcast: 192.168.1.63
+Network:   192.168.1.64/27   Broadcast: 192.168.1.95
+Network:   192.168.1.96/27   Broadcast: 192.168.1.127 
+Network:   192.168.1.128/27   Broadcast: 192.168.1.159 
+Network:   192.168.1.160/27   Broadcast: 192.168.1.191 
+Network:   192.168.1.192/27   Broadcast: 192.168.1.223
+Network:   192.168.1.224/27   Broadcast: 192.168.1.255
+
+2à)126
+2á)62
+
+3à)31.255.255.255 
+3á)10.255.255.127
+
+4)
+Network:   192.168.0.0/28   Broadcast: 192.168.0.15  
+Network:   192.168.0.240/28   Broadcast: 192.168.0.255
